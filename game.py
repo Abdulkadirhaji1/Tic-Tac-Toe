@@ -1,3 +1,6 @@
+import time
+from player import HummanPlayer, RandoomComputerPlayer
+
 class TicTacToe:
     def __init__(self):
         self.board = [' ' for _ in range(9)] # we will use a single list to rep 3x3 board
@@ -93,8 +96,14 @@ def play(game, x_player, o_player, print_game=True):
             # after we made our move, we need to alternate letters
             letter = 'O' if letter == 'X' else 'X'
 
-        if print_game:
-            print('It\'s a tie!')
+        # tiny break to make things a little easier to read
+        time.sleep(0.8)
 
+    if print_game:
+        print('It\'s a tie!')
 
-
+if __name__ == '__main__':
+    x_player = HummanPlayer('X')
+    o_player = RandoomComputerPlayer('O')
+    t = TicTacToe()
+    play(t, x_player, o_player, print_game=True)
